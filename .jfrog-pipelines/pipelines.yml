@@ -10,8 +10,8 @@ resources:
   - name: dbp_image
     type: Image
     configuration:
-      registry: myArtifactory                                # <-- replace with your artifactory integration
-      sourceRepository: quickstarts-docker-local               # <-- required if registry is Artifactory
+      registry: myArtifactory
+      sourceRepository: quickstarts-docker-local
       imageName: pipelines.jfrog.io/quickstarts-docker-local/dbp  # < -- replace with your image path and name
       imageTag: latest
       autoPull: true
@@ -53,7 +53,7 @@ pipelines:
             - name: dbp_repo
             - name: cron_trigger_docker
           integrations:
-            - name: myArtifactory                            # <-- replace with your artifactory integration
+            - name: myArtifactory
         execution:
           onStart:
               # - msg="Run description updated from step $step_id"
@@ -66,7 +66,7 @@ pipelines:
           affinityGroup: dbp_group
           targetRepository: quickstarts-target-local
           integrations:
-            - name: myArtifactory                            # <-- replace with your artifactory integration
+            - name: myArtifactory
           inputSteps:
             - name: docker_build
           outputResources:
